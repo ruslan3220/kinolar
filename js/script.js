@@ -19,9 +19,9 @@ function renderMovies(item, wrapper) {
     item.forEach((array) => {
         let newTemplate = elTemplate.cloneNode(true)
         newTemplate.querySelector(".movies-title").textContent = array.Title
-        newTemplate.querySelector(".movies-year").textContent = array.Year
+        newTemplate.querySelector(".movies-year").textContent = `Year: ${array.Year}`
         newTemplate.querySelector(".movies-cast").textContent = array.Cast
-        newTemplate.querySelector(".movies-genres").textContent = array.Genres
+        newTemplate.querySelector(".movies-genres").textContent = `Categories: ${array.Genres}`
         elFragment.appendChild(newTemplate)
     })
     wrapper.appendChild(elFragment)
