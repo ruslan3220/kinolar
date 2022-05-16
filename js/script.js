@@ -37,7 +37,7 @@ function serachFind(movie_title) {
 
 elForm.addEventListener("input", (evt) => {
     evt.preventDefault()
-    let searchInput = elSearchInput.value;
+    let searchInput = elSearchInput.value.trim();
 
     let pattern = new RegExp(searchInput, "gi")
     let result = serachFind(pattern)
