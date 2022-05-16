@@ -1,4 +1,7 @@
 let elWrapper = document.querySelector("#wrapper")
+let elForm = document.querySelector(".form")
+let elSearchInput = document.querySelector(".form-input")
+let elSearchBtn = document.querySelector(".search-btn")
 let elTemplate = document.querySelector("#template").content;
 let newMovies = kinolar.splice(0, 20);
 let normalizeMovies = newMovies.map(function (item) {
@@ -24,3 +27,24 @@ function renderMovies(item, wrapper) {
     wrapper.appendChild(elFragment)
 }
 renderMovies(normalizeMovies, elWrapper);
+
+function serachFind(movie_title) {
+    return normalizeMovies.filter(function (movie) {
+        return movie.Title.match(movie_title)
+        
+    })
+}
+
+elForm.addEventListener("submit", (evt) => {
+    evt.preventDefault()
+    let searchInput = elSearchInput.value;
+
+    let pattern = new RegExp(searchInput, "gi")
+    let result = serachFind(pattern)
+    
+
+    elWrapper.innerHTML = null
+    renderMovies(result, elWrapper);
+    console.log(searchValue);
+})
+
