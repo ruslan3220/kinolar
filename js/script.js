@@ -45,6 +45,5 @@ elForm.addEventListener("input", (evt) => {
 
     elWrapper.innerHTML = null
     renderMovies(result, elWrapper);
-    console.log(searchValue);
 })
 
