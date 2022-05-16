@@ -35,7 +35,7 @@ function serachFind(movie_title) {
     })
 }
 
-elForm.addEventListener("submit", (evt) => {
+elForm.addEventListener("input", (evt) => {
     evt.preventDefault()
     let searchInput = elSearchInput.value;
 
