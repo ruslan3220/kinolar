@@ -1,9 +1,11 @@
+// Html dom elements 
 let elWrapper = document.querySelector("#wrapper")
 let elForm = document.querySelector(".form")
 let elSearchInput = document.querySelector(".form-input")
 let elSearchBtn = document.querySelector(".search-btn")
 let elTemplate = document.querySelector("#template").content;
-let newMovies = kinolar.splice(0, 20);
+// sliceMovies 
+let newMovies = kinolar.splice(0, 100);
 let normalizeMovies = newMovies.map(function (item) {
     return{
         Title: item.title,
@@ -14,6 +16,8 @@ let normalizeMovies = newMovies.map(function (item) {
 });
 
 let elFragment = document.createDocumentFragment()
+
+// renderfunction 
 
 function renderMovies(item, wrapper) { 
     item.forEach((array) => {
@@ -28,12 +32,16 @@ function renderMovies(item, wrapper) {
 }
 renderMovies(normalizeMovies, elWrapper);
 
+// searchmovies
+
 function serachFind(movie_title) {
     return normalizeMovies.filter(function (movie) {
         return movie.Title.match(movie_title)
         
     })
 }
+ 
+// Listener 
 
 elForm.addEventListener("input", (evt) => {
     evt.preventDefault()
